@@ -1,7 +1,7 @@
 {
   "name": "ftp-reader",
   "version": "0.0.1",
-  "description": "Used internally to read files from s/ftp servers",
+  "description": "Used to process files from s/ftp servers",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/bytron/ftp-reader.git"
+    "url": "git+https://github.com/bytronaviation/ftp-reader.git"
   },
   "author": "Syed Mujtaba Hassan Ali",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/bytron/ftp-reader#readme",
+  "license": "MIT",
+  "homepage": "https://github.com/bytronaviation/ftp-reader",
   "dependencies": {
     "bluebird": "^3.5.3",
     "lodash": "^4.17.11",

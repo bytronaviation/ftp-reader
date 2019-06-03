@@ -34,7 +34,6 @@ export async function readFromFtp(
 ) {
   setLogger(logger);
 
-  // TODO: Do the processing
   const sftpClient = await getSftpConnection(ftpConfig);
   const fileGroupsList = await getSftpFiles(sftpClient, ftpBasePath, filter, grouper, sorter);
 
