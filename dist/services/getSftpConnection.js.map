@@ -1,0 +1,1 @@
+{"version":3,"file":"getSftpConnection.js","sourceRoot":"","sources":["../../src/services/getSftpConnection.ts"],"names":[],"mappings":";;;;;;;;;;AACA,MAAM,UAAU,GAAG,OAAO,CAAC,kBAAkB,CAAC,CAAC;AAE/C,SAAsB,iBAAiB,CAAC,SAA6B;;QACnE,MAAM,UAAU,GAAG,IAAI,UAAU,EAAE,CAAC;QAEpC,MAAM,UAAU,CAAC,OAAO,CAAC,SAAS,CAAC,CAAC;QAEpC,OAAO,UAAU,CAAC;IACpB,CAAC;CAAA;AAND,8CAMC"}
