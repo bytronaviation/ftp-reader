@@ -14,7 +14,7 @@ async function getSftpFiles(sftpClient, basePath, filter, grouper, sorter) {
 
 async function processFile(sftpClient, fileGroup, processor: Function) {
   try {
-    processor(sftpClient, fileGroup);
+    await processor(sftpClient, fileGroup);
   }
   catch (error) {
     logError(`fileGroup failed to process. Error: ${error.toString()} - FileGroup: ${JSON.stringify(fileGroup)}`);
