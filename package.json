@@ -1,6 +1,6 @@
 {
   "name": "ftp-reader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Used to process files from s/ftp servers",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

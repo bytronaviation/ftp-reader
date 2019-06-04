@@ -3,8 +3,6 @@ import {FtpConfigInterface} from './interfaces/FtpConfigInterface';
 import {LoggerInterface} from './interfaces/LoggerInterface';
 import {logError, removeLogger, setLogger} from './utilities/logger';
 import {getSftpConnection} from './services/getSftpConnection';
-import {getFtpFile} from './services/getFtpFile';
-import {moveFtpFile} from './services/moveFtpFile';
 
 async function getSftpFiles(sftpClient, basePath, filter, grouper, sorter) {
   const baseFiles = await sftpClient.list(basePath || '/');
@@ -16,7 +14,7 @@ async function getSftpFiles(sftpClient, basePath, filter, grouper, sorter) {
 
 async function processFile(sftpClient, fileGroup, processor: Function) {
   try {
-    processor(sftpClient, getFtpFile, moveFtpFile, fileGroup);
+    processor(sftpClient, fileGroup);
   }
   catch (error) {
     logError(`fileGroup failed to process. Error: ${error.toString()} - FileGroup: ${JSON.stringify(fileGroup)}`);
@@ -29,7 +27,7 @@ export async function readFromFtp(
   filter: Function,
   grouper: Function,
   sorter: Function,
-  processor: Function,
+  processor: (sftpClient, fileGroup) => void,
   ftpBasePath: string
 ) {
   setLogger(logger);
@@ -43,3 +41,7 @@ export async function readFromFtp(
 
   removeLogger();
 }
+
+export {getFtpFile} from './services/getFtpFile';
+export {moveFtpFile} from './services/moveFtpFile';
+export {deleteFtpFile} from './services/deleteFtpFile';
