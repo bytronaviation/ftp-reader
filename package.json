@@ -1,11 +1,12 @@
 {
   "name": "ftp-reader",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Used to process files from s/ftp servers",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "buildPublish": "tsc && npm publish",
     "build-watch": "tsc -w",
     "lint": "eslint ./src/"
   },

@@ -11,8 +11,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const bluebird_1 = require("bluebird");
 const logger_1 = require("./utilities/logger");
 const getSftpConnection_1 = require("./services/getSftpConnection");
-const getFtpFile_1 = require("./services/getFtpFile");
-const moveFtpFile_1 = require("./services/moveFtpFile");
 function getSftpFiles(sftpClient, basePath, filter, grouper, sorter) {
     return __awaiter(this, void 0, void 0, function* () {
         const baseFiles = yield sftpClient.list(basePath || '/');
@@ -24,7 +22,7 @@ function getSftpFiles(sftpClient, basePath, filter, grouper, sorter) {
 function processFile(sftpClient, fileGroup, processor) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            processor(sftpClient, getFtpFile_1.getFtpFile, moveFtpFile_1.moveFtpFile, fileGroup);
+            processor(sftpClient, fileGroup);
         }
         catch (error) {
             logger_1.logError(`fileGroup failed to process. Error: ${error.toString()} - FileGroup: ${JSON.stringify(fileGroup)}`);
@@ -42,4 +40,10 @@ function readFromFtp(ftpConfig, logger, filter, grouper, sorter, processor, ftpB
     });
 }
 exports.readFromFtp = readFromFtp;
+var getFtpFile_1 = require("./services/getFtpFile");
+exports.getFtpFile = getFtpFile_1.getFtpFile;
+var moveFtpFile_1 = require("./services/moveFtpFile");
+exports.moveFtpFile = moveFtpFile_1.moveFtpFile;
+var deleteFtpFile_1 = require("./services/deleteFtpFile");
+exports.deleteFtpFile = deleteFtpFile_1.deleteFtpFile;
 //# sourceMappingURL=index.js.map
