@@ -12,7 +12,7 @@ async function getSftpFiles(sftpClient, basePath, filter, grouper, sorter) {
   return sorter(groupedFiles);
 }
 
-async function processFile(sftpClient, fileGroup, processor: Function) {
+async function processFile(sftpClient, processor: Function, fileGroup) {
   try {
     await processor(sftpClient, fileGroup);
   }
@@ -35,7 +35,7 @@ export async function readFromFtp(
   const sftpClient = await getSftpConnection(ftpConfig);
   const fileGroupsList = await getSftpFiles(sftpClient, ftpBasePath, filter, grouper, sorter);
 
-  await each(fileGroupsList, processFile.bind(null, processor));
+  await each(fileGroupsList, processFile.bind(null, sftpClient, processor));
 
   sftpClient.end();
 

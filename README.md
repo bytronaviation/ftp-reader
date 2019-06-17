@@ -1,5 +1,7 @@
 # FTP Reader
 
+### WARNING: THIS IS UNFINISHED AND MAY NOT FULLY WORK AT THIS TIME.
+
 This module is designed to allow you to read files from an (S)FTP server easily
 providing some functions to filter, sort, group and process the files found.
 
