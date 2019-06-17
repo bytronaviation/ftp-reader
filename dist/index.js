@@ -19,10 +19,10 @@ function getSftpFiles(sftpClient, basePath, filter, grouper, sorter) {
         return sorter(groupedFiles);
     });
 }
-function processFile(sftpClient, fileGroup, processor) {
+function processFile(sftpClient, processor, fileGroup) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            processor(sftpClient, fileGroup);
+            yield processor(sftpClient, fileGroup);
         }
         catch (error) {
             logger_1.logError(`fileGroup failed to process. Error: ${error.toString()} - FileGroup: ${JSON.stringify(fileGroup)}`);
@@ -34,7 +34,7 @@ function readFromFtp(ftpConfig, logger, filter, grouper, sorter, processor, ftpB
         logger_1.setLogger(logger);
         const sftpClient = yield getSftpConnection_1.getSftpConnection(ftpConfig);
         const fileGroupsList = yield getSftpFiles(sftpClient, ftpBasePath, filter, grouper, sorter);
-        yield bluebird_1.each(fileGroupsList, processFile.bind(null, processor));
+        yield bluebird_1.each(fileGroupsList, processFile.bind(null, sftpClient, processor));
         sftpClient.end();
         logger_1.removeLogger();
     });
