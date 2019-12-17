@@ -45,3 +45,4 @@ export async function readFromFtp(
 export {getFtpFile} from './services/getFtpFile';
 export {moveFtpFile} from './services/moveFtpFile';
 export {deleteFtpFile} from './services/deleteFtpFile';
+export {FtpConfigInterface};
