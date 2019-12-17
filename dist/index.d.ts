@@ -4,3 +4,4 @@ export declare function readFromFtp(ftpConfig: FtpConfigInterface, logger: Logge
 export { getFtpFile } from './services/getFtpFile';
 export { moveFtpFile } from './services/moveFtpFile';
 export { deleteFtpFile } from './services/deleteFtpFile';
+export { FtpConfigInterface };
