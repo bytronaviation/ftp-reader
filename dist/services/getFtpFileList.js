@@ -9,13 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const logger_1 = require("../utilities/logger");
-function deleteFtpFile(sftpClient, fullFileName) {
+function getFtpFileList(sftpClient, basePath) {
     return __awaiter(this, void 0, void 0, function* () {
-        logger_1.logInfo(`Attempting to delete file ${fullFileName}`);
-        yield sftpClient.delete(fullFileName);
-        logger_1.logInfo(`File archived`);
-        return true;
+        logger_1.logInfo(`Attempting to get all a list of all files on FTP server`);
+        return yield sftpClient.list(basePath || '/');
     });
 }
-exports.deleteFtpFile = deleteFtpFile;
-//# sourceMappingURL=deleteFtpFile.js.map
+exports.getFtpFileList = getFtpFileList;
+//# sourceMappingURL=getFtpFileList.js.map

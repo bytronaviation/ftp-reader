@@ -43,6 +43,8 @@ export async function readFromFtp(
 }
 
 export {getFtpFile} from './services/getFtpFile';
+export {getFtpFileList} from './services/getFtpFileList';
+export {getSftpConnection} from './services/getSftpConnection';
 export {moveFtpFile} from './services/moveFtpFile';
 export {deleteFtpFile} from './services/deleteFtpFile';
 export {FtpConfigInterface};
